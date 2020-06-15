@@ -1,0 +1,15 @@
+#include <Windows.h>
+
+#define MAX_FILENAME_LENGTH 512
+#define PRIORITY_BOOSTER_DEVICE 0x8000
+#define IOCTL_INJECTION_DUMP CTL_CODE(PRIORITY_BOOSTER_DEVICE, \
+0x800, METHOD_NEITHER, FILE_ANY_ACCESS)
+
+
+struct Shellcode {
+	USHORT Size;
+	LARGE_INTEGER Time;
+	ULONG ThreadId;
+	ULONG ProcessId;
+	WCHAR name[256];
+};
